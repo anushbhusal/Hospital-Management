@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+{% load tz %}
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static "css/download.css" %}">
+</head>
+
+<body>
+  <br><br><br>
+  <form id="downloadForm" method="post" action="{% url 'download' username=Patientdish.username %}">
+  {% csrf_token %}
+
+    <div class="invoice-box">
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <h5>Hospital Management</h5>
+                </td>
+                <td>
+                  Admit Date: {{Patientdish.Admit_date}}<br>
+                  Release Date: {{ timezone.now|date:"Y-m-d" }}<br> 
+                  Days Spent: {{day}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Patient Name : {{Patientdish.username}}<br>
+                  Patient Mobile : {{Patientdish.phone}}<br>
+                  Patient Addres : {{Patientdish.address}}<br>
+                </td>
+                <td>
+                  Doctor Name :<br>
+                  {{Patientdish.dFname}}<br>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Disease and Symptoms :<br>
+                  {{Patientdish.Problem_pat}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="information">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Charges :<br><br>
+                  Room Charge of {{day}} Days : {{ Patientdish.roomcharge }}<br>
+                  Doctor Fee : {{ Patientdish.doctorcharge }}<br>
+                  Medicine Cost : {{ Patientdish.medicinecharge }}<br>
+                  Other Charge : {{ Patientdish.othercharge }}<br><br>
+                  Total Rupees : {{ Patientdish.totalcharge }}                
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <div class="download" onclick="downloadPdf()">
+    <button type="button">Download</button>
+  </div>
+  <script>
+   function downloadPdf() {
+      const form = document.getElementById('downloadForm');
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to generate PDF');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'discharge_bill.pdf';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          a.remove();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Failed to generate PDF');
+        });
+    }
+  </script>
+  
+</body>
+
+</html>

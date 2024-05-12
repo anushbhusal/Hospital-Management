@@ -1,0 +1,190 @@
+
+    table {
+      border-collapse: collapse;
+    }
+    .invoice-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+      color: #555;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 45px;
+      line-height: 45px;
+      color: #333;
+    }
+
+    .invoice-box table tr.information table td {
+      padding-bottom: 40px;
+    }
+
+    .invoice-box table tr.heading td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /** RTL **/
+    .rtl {
+      direction: rtl;
+      font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+
+    .rtl table {
+      text-align: right;
+    }
+
+    .rtl table tr td:nth-child(2) {
+      text-align: left;
+    }
+    .download{
+      margin-top: 20px;
+    }
+    .download button{
+      color: royalblue;
+      background-color: brown;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+      width: 150px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .upperreport{
+      overflow: hidden;
+    }
+    .underreport{
+      overflow: hidden;
+    }
+    .reporth1{
+      color:#808080;
+      background-color: antiquewhite;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+    .reportleft{
+      width: 49%;
+      float: left;
+      background-color:#f4f1f1;
+      overflow: hidden;
+      height: 1120px;
+    }
+    .reportright{
+      width: 51%;
+      float: right;
+      background-color:	#f4f1f1;
+      overflow: hidden;
+      height: 1120px;
+
+    }
+    .table1{
+      height: 1120px;
+
+    }
+    .table2{
+      height: 1120px;
+
+    }
+
+    .table1 td,
+    th {
+      width: 100%;
+      border: 1px black solid;
+      font-size: smaller;
+      text-align: center;
+      border-spacing: 0%;
+    }
+
+    .table2 td,
+    th {
+      width: 100%;
+      border: 1px black solid;
+      text-align: center;
+      border-spacing: 0%;
+      border-collapse: collapse;
+      font-size: smaller;
+    }
+    .underreport td input{
+      padding: 10px;
+      border: none;
+      outline: none;
+      background-color:	#f4f1f1;
+      cursor: pointer;
+
+    }
+    .footerreport{
+      display: flex;
+      font-size: smaller;
+      border-top: 3px #333 solid;
+      margin-top: 20px;
+    }
+    .footerreport div{
+      display: table;
+      margin-right: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .pmargin{
+      margin-top: -30px;
+    }

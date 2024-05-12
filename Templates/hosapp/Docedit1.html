@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%load static%}
+
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">
+
+    <br>
+<body>
+    <div class="Asb">
+        <br>
+        <h1> Update Your Data</h1>
+        <form class="hari" action="{% url 'update' id=dataa.id %}" method="POST">
+            {% csrf_token %}
+            <div class="mona">
+                <label >First Name</label>
+                <input type="character" name="dFname" value= "{{dataa.dFname}}">
+            </div>
+            <div class="Sona">
+                <label> Last Name</label>
+                <input type="text" name="dLname" value= "{{dataa.dLname}}">
+            </div>
+            <div class="mona">
+            <label for="Mail">Email</label>
+                <input type="text" name="email" value= "{{dataa.email}}">
+            </div>
+            <div class="Sona">
+            <label for="address">Address</label>
+                <input type="text" name="add" value= "{{dataa.address}}">
+            </div>
+            <div class="mona">
+                <label >Mobile Number</label>
+                <input type="tel" name="Dphone" value= "{{dataa.Dphone}}">
+            </div>
+        <div class="Sona">
+                <label>Age</label>
+                <input type="Number" name="age"  value= "{{dataa.age}}">
+        </div> 
+        <div class="mona">
+                <label >Department</label>
+                <input type="text" name="department" value= "{{dataa.department}}">
+    </div>
+        <div class="depu">
+            <button type="submit" name = "updata">Update</button>
+            </div>
+        </form>
+</div>   
+</body>
+</html>

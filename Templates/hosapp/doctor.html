@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static "css/doctorenterrecentt.css"%}">
+
+    
+
+</head>
+<div class="haddd">
+        <header>
+            <div class="header-left">
+                <p>Tech<span>Care</span></p>
+            </div>
+            <div class="header-right"> 
+                <div class="log-out">
+                    {{ request.user.dFname }}
+                    <img src="{%static "Image/addd.webp"%}"alt="Users" class="head-1" title="user">
+                    <a href="{% url 'index' %}">LogOut</a>
+                </div>
+            </div>
+    </header>
+</div>
+<body>
+<div class="admin-body">
+<!-- .................................................................... -->
+<div class="left">
+    <div class = "admtr">
+        <a onclick="show1()"><i class="fa-solid fa-gauge"></i>Dashboard</a>
+        <a onclick="show2()"><i class="fa-solid fa-bed-pulse"></i>Patients</a>
+        <a onclick="show3()"><i class="fa-solid fa-calendar-days"></i>Appointments</a>
+    </div>
+</div>
+
+<div class="right" name="adash">
+    <div id="div1">
+        <div  class="Admindash">
+            <div class="row">
+                <img src="{%static "Image/doctorr.png"%}">
+                <h1><br>{{count201}}</h1>
+                <h2>Appointments For You</h2>
+            </div>
+            <div class="row">
+                <img src="{%static "Image/patientt.jpg"%}">
+                <h1><br>{{count202}}</h1>
+                <h2>Patients Under You</h2>
+            </div>
+            <div class="row">
+                <img src="{%static "Image/aaa.webp"%}">
+                <h1><br>{{count203}}</h1>
+                <h2>Your Patients Discharge:</h2>
+            </div>
+        </div>
+
+        <div class="Record2">
+            <div class="heading">
+                <h1> Your Recent Patients</h1>
+            </div>
+            {% if userdata204 %}
+            <table class="table">
+                <tr>
+                    <th rowspan="2">Name</th>
+                    <th rowspan="2">Address</th>
+                    <th rowspan="2">Age</th>
+                    <th rowspan="2">Email</th>
+                    <th rowspan="2">Mobile</th>
+                    <th rowspan="2">Problem</th>
+
+                </tr>
+                <tr>
+                    
+                </tr>
+                {% for user in userdata204 %}
+                <tr>
+                    <td>{{ user.pFname }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.Problem_pat }}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <center><h2>No Patients Records found...!!!!!</h2></center>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+    <div id="div2">
+        <div  class="Admindash">
+            <div class="row" onclick="show5()">
+               <img src="{%static "Image/doctorr.png"%}">
+               <br>
+               <h1>Your Patients Record</h1>
+            </div>
+            <div class="row" onclick="show6()">
+               <img src="{%static "Image/patientt.jpg"%}">
+                <br>
+                <h1>Your Discharge Patients</h1>
+             </div>
+             <div class="row" onclick="reportview()">
+                <img src="{%static "Image/patientt.jpg"%}">
+                 <br>
+                 <h1>View Your Patients Report</h1>
+              </div>
+        </div>
+    </div>
+
+    <div id="div3">
+        <div  class="Admindash">
+            <div class="row" onclick="show4()">
+               <img src="{%static "Image/doctorr.png"%}">
+               <br>
+               <h1>View Your Appointments</h1>
+            </div>
+            <div class="row" onclick="show7()">
+                <img src="{%static "Image/patientt.jpg"%}">
+                <br>
+                <h1>Delete Your Appointments</h1>
+             </div>
+        </div>
+    </div>
+<iframe id="div4" src="{% url 'Doctorennter_patient_appointment_view' %}"> </iframe>
+<iframe id="div5" src="{% url 'Doctorennter_patient_appointment_rec' %}"> </iframe>
+<iframe id="div6" src="{% url 'Doctorennter_patient_discharge_rec' %}"> </iframe>
+<iframe id="div7" src="{% url 'Doctorennter_appointment_delete' %}"> </iframe>
+<iframe id="reportview" src="{% url 'doctorenter_report_view'  %}"> </iframe>
+
+
+
+</div>
+</div>
+
+<div>
+    <footer>
+    <h4 style="color: white;">Follow us</h4>
+    <div class="social-links">
+        <a href="#" id="fb"><i class="fab fa-facebook-f" ></i></a>
+        <a href="#" id="fb"><i class="fab fa-twitter" ></i></a>
+        <a href="#" id="inst"><i class="fab fa-instagram"></i></a>
+        <a href="#" id="inst"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    </footer>
+    </div>
+
+    <script src="{%static "css/Doctorenter.js"%}"></script>
+
+</body>
+
+</html>

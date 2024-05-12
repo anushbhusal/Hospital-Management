@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+{% load static %}
+{% load tz %} 
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Discharge Bill</title>
+  <link rel="stylesheet" type="text/css" href="{% static "css/discharge.css" %}">
+</head>
+
+<body>
+<br><br><br>
+<form method="post" action="{% url 'discharge' username=data4.username%}">
+  {% csrf_token %}
+
+<div class="invoice-box">
+
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td class="title">
+            <h2>HOSPITAL</h2>
+            <h2>MANAGEMENT</h2>
+            </td>
+
+            <td>
+              Admit Date: {{ data4.Admit_date }}<br>
+              Release Date: {{ timezone.now|date:"Y-m-d" }}<br> 
+              Days Spent: {{ day }}<br>
+          </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="information">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td>
+              Patient Name : {{ data4.username }}<br>
+              Patient Mobile : {{ data4.phone }}<br>
+              Patient Address : {{ data4.address }}<br>
+            </td>
+
+            <td>
+              Doctor Name :<br>
+              {{ data4.dFname }}<br>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="heading">
+      <td>
+        Disease and Symptoms
+      </td>
+      <td>
+
+      </td>
+
+    </tr>
+
+    <tr class="details">
+      <td>
+        {{ data4.Problem_pat }}
+      </td>
+    </tr>
+    <tr class="heading">
+      <td>
+        Item
+      </td>
+
+      <td>
+        Price
+      </td>
+    </tr>
+
+    <tr class="item">
+      <tr class="item">
+        <td>
+          Room Charge of {{ data4.day }} Days
+        </td>
+        <td>
+          <input type="number" name="roomcharge" id="roomChargeInput">
+        </td>
+      </tr>
+      
+      <tr class="item">
+        <td>
+          Doctor Fee
+        </td>
+        <td>
+          <input type="number" name="doctorcharge" id="doctorFeeInput">
+        </td>
+      </tr>
+      
+      <tr class="item">
+        <td>
+          Medicine Cost:
+        </td>
+        <td>
+          <input type="number" name="medicinecharge" id="medicineCostInput">
+        </td>
+      </tr>
+      
+      <tr class="item last">
+        <td>
+          Other Charge
+        </td>
+        <td>
+          <input type="number" name="othercharge" id="otherChargeInput">
+        </td>
+      </tr>
+      
+      <tr class="item total">
+        <td>
+          Total Rupees : 
+        </td>
+        <td>
+          <input type="text" name="totalcharge"id="totalInput" readonly>
+        </td>
+      </tr>
+  </table>
+</div>
+<br><br>
+<div class="download">
+  
+  <button type="submit">Generate Bill</button>
+
+</div>
+</form>
+
+<script src="{%static "css/discharge1.js"%}"></script>
+
+</body>
+</html>

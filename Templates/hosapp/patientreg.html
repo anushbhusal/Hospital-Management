@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/register.css" %}">
+</head>
+<body>
+    <form method="post" action="{% url 'pat1' %}">
+        {% csrf_token %}
+        <h3>Register Here</h3>
+        <div class="form-group">
+            <div class="first">
+                <label for="firstname">First Name</label>
+                {{ form.username }}
+            </div>
+            <div class="first1">
+                <label for="email">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="first">
+                <label for="DOB">Date of Birth</label>
+                {{ form.dob }}
+            </div>
+            <div class="first1">
+                <label for="age">Age</label>
+                {{ form.age }}
+            </div>
+            <div class="first">
+                <label for="gender">Gender</label>
+                {{ form.gender }}
+            </div>
+            <div class="first1">
+                <label for="password1">Password</label>
+                {{ form.password1 }}
+            </div>
+            <div class="first">
+                <label for="password2">Confirm Password</label>
+                {{ form.password2 }}
+            </div>
+            <div class="second-row">
+                <label for="address">Address</label>
+                {{ form.address }}
+            </div>
+            <div class="third-row">
+                <div class="third">
+                    <label for="phone">Doctor Mobile Number</label>
+                    {{ form.phone }}
+                </div>
+                <div class="third">
+                    <label for="Ailment">Patient Ailment</label>
+                    {{ form.Ailment }}
+                </div>
+                <div class="usertype">
+                    <label for="is_patient">Patient</label>
+                    {{ form.is_patient }}
+                </div>
+            </div>
+        </div>
+        <button type="submit">Add Patient</button>
+    </form>
+</body>
+</html>
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/register.css" %}">
+</head>
+<body>
+    <form method="post" action="{% url 'pat1' %}">
+        {% csrf_token %}
+        <h3>Register Here</h3>
+        <div class="form-group">
+            <div class="first">
+                <label for="username">First Name</label>
+                {{ form.username }}
+            </div>
+            <div class="first1">
+                <label for="email">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="first">
+                <label for="DOB">Date of Birth</label>
+                {{ form.dob }}
+            </div>
+            <div class="first1">
+                <label for="age">Age</label>
+                {{ form.age }}
+            </div>
+            <div class="first">
+                <label for="gender">Gender</label>
+                {{ form.gender }}
+            </div>
+            <div class="first1">
+                <label for="password">Password</label>
+                {{ form.password }}
+            </div>
+            <div class="first">
+                <label for="password">Confirm Password</label>
+                {{ form.password1 }}
+            </div>
+            <div class="second-row">
+                <label for="address">Address</label>
+                {{ form.address }}
+            </div>
+            <div class="third-row">
+                <div class="third">
+                    <label for="Dphone">Doctor Mobile Number</label>
+                    {{ form.Dphone }}
+                </div>
+                <div class="third">
+                    <label for="Problem_pat">Patient Ailment</label>
+                    {{ form.Problem_pat }}
+                </div>
+                <div class="usertype">
+                    <label for="is_patient">Patient</label>
+                    {{ form.is_patient }}
+                </div>
+            </div>
+        </div>
+        <button type="submit">Add Patient</button>
+    </form>
+</body>
+</html>

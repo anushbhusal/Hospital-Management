@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+    <br>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{%static "css/register.css"%}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">
+
+
+
+</head>
+<body>
+    <div class="Record22">
+        <form method="POST">
+            {% csrf_token %}
+        <div class="heading">
+            <h1>All Appointments To Approve</h1>
+        </div>
+        {% if userdata_pat_Appoint %}
+        <table class="table">
+        <tr>
+            <th colspan="2">Name</th>
+            <th rowspan="2">Address</th>
+            <th rowspan="2">Age</th>
+            <th rowspan="2">Email</th>
+            <th rowspan="2">Mobile</th>
+            <th rowspan="2">Doctor Mobile</th>
+            <th rowspan="2">Ailment</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Approve</th>
+            <th>Reject</th>
+
+
+        </tr>
+        {% for user in userdata_pat_Appoint %}
+        <tr>
+            <td>{{user.pFname}}</td>
+            <td>{{user.pLname}}</td>
+            <td >{{user.address}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.Dphone}}</td>
+            <td>{{user.Problem_pat}}</td>
+            <td>{% if user.Appoint  %}
+                <div class="form-check">
+                    <button class="form-check-input" type = "submit" checked="checked" name="boxes4"  value="{{user.id}}" id="icon1"><i class="fa-solid fa-square-check"></i></button>
+                </div>
+                {% else %}
+                    <div class="form-check">
+                        <button class="form-check-input" type = "submit" checked="checked" name="boxes4"  value="{{user.id}}" id="icon1"><i class="fa-solid fa-square-check"></i></button>
+                    </div>
+                {% endif %}
+            </td>
+            <td>{% if user.Appoint  %}
+                <div class="form-check">
+                    <button class="form-check-input" type = "submit" checked="checked" name="boxes5"  value="{{user.id}}" id="icon"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                </div>
+                {% else %}
+                    <div class="form-check">
+                        <button class="form-check-input" type = "submit" checked="checked" name="boxes5"  value="{{user.id}}" id="icon"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+
+                    </div>
+                {% endif %}
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <center><h2>No Appointments Records found...!!!!!</h2></center>
+    {% endif %}
+    </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

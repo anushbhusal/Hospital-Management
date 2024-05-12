@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <br>
+    <link rel="stylesheet" type="text/css" href="{%static "css/register.css"%}">
+
+
+</head>
+<body>
+        <form method="post">
+            {% csrf_token %}
+            <h3>Register Here</h3>
+            <div class="form-group">
+                <div class="first">
+                    <label for="firstname">First Name</label>
+                    <input type="text" placeholder=" Enter the First Name" name="username" id="fname">
+                </div>
+                <div class="first1">
+                    <label for="Lastname">Last Name</label>
+                    <input type="text" placeholder=" Enter the Last name" name="lname" id="lname">
+                </div>
+                <div class="first">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter the Email" name="email" id="email">
+                </div>
+                <div class="first1">
+                    <label for="DOB">Date of Birth </label>
+                    <input type="date" placeholder=" Enter the Birth date" name="dob" id="dob">
+                </div>
+                <div class="first">
+                    <label for="age">Age</label>
+                    <input type="Number" placeholder=" Enter the Age" name="age" id="age">
+                </div>
+                <div class="first1">
+                    <label for="gender">Gender</label>
+                        <select>
+                            <option>Choose</option>
+                            <option>MAle</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                <div class="first">
+                    <label for="password1">Password</label>
+                    <input type="password" placeholder="Enter Password" id="password1" name="password1">
+                </div>
+                <div class="first1">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" placeholder="Confirm Password" id="password2" name="password2">
+                </div>
+            </div>
+            <div class="second-row"> 
+                <label for="address">Address</label>
+                <input type="text" placeholder=" Enter the Address" name="add" id="add">
+            </div>
+            <div class="third-row">
+                <div class="third">
+                    <label for="phone">Mobile Number</label>
+                    <input type="Number" placeholder=" Enter the Phone Number" name="phone" id="phone" max-length=10>
+                </div>
+                <div class="third">
+                    <label for="Patient">Department</label>
+                    <input type="text" placeholder=" Enter the Department" name="department" id="department">
+                </div>
+                <div class="third">
+                    <label for="ptype">User Type</label>
+                        <select>
+                            <option>Choose</option>
+                            {% comment %} <option>Doctor</option>
+                            <option>Admin</option>
+                            <option>Patient</option> {% endcomment %}
+                            <option>staff</option>
+
+                        </select>
+                    </div>
+            <button type="submit">Add Staff</button>
+        </div>
+        </form>
+</body>
+</html>

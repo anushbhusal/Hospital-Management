@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Book Appointments</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/appointt.css" %}">
+</head>
+<body>
+    <form method="post" action="{% url 'Admin_book_appointment_pat' username=user.username %}">
+        <h1>Book Your Appointments Here</h1>
+        {% csrf_token %}
+        <div class="first">
+            <label for="username">Patient Name</label>
+            <input type="character" name="username" value= "{{Admin_Appoint.username}}" readonly>
+            
+        </div>
+        <div class="first1">
+            <label for="Admitdate">Date of Admit</label>
+            <input type="Date" name="Admit_date" value= "{{Admin_Appoint.Admit_date}}" >
+            
+        </div>
+        <div class="first">
+            <label for="Doctorname">Doctor Name</label>
+            <input type="character" name="dFname" value= "{{Admin_Appoint.dFname}}">
+            
+        </div>
+        <div class="first1">
+            <label for="Department">Doctor Department</label>
+            <input type="character" name="department" value= "{{Admin_Appoint.department}}" >
+            
+        </div>
+        <div class="first">
+            <label for="Ailment">Patient's Problem</label>
+            <input type="character" name="Problem_pat" value= "{{Admin_Appoint.Problem_pat}}" >
+            
+        </div>
+        <div class="first1">
+            <label for="phone">Doctor Mobile Number</label>
+            <input type="phone2numeric" name="Dphone" value= "{{Admin_Appoint.Dphone}}" >
+            
+        </div>
+        <div class="first1">
+            <label for="phone">Address of Patient</label>
+            <input type="character" name="address" value= "{{Admin_Appoint.address}}" >
+            
+        </div>
+        <div>
+            <button type="submit">Book Appointments</button>
+        </div>
+    </form>
+</body>
+</html>
+

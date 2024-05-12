@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Book Appointments</title>
+    <!-- Linking external resources -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- Linking to a CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/appointtt.css" %}">
+</head>
+<body>
+    <!-- Appointment booking form -->
+    <form class="hari" action="{% url 'Appoint' username=Patient_Appoint.username %}" method="POST">
+
+        <h1>Book Your Appointments Here</h1>
+        <!-- CSRF token for security -->
+        {% csrf_token %}
+        <!-- Patient name input -->
+        <div class="first">
+            <label for="username">Patient Name</label>
+            <input type="character" name="username" value= "{{Patient_Appoint.username}}" readonly>
+        </div>
+        <!-- Date of Admit input -->
+        <div class="first1">
+            <label for="Admitdate">Date of Admit</label>
+            <input type="Date" name="Admit_date" value= "{{Patient_Appoint.Admit_date}}">
+            
+        </div>
+        <!-- Doctor name input -->
+        <div class="first">
+            <label for="dFname">Doctor Name</label>
+            <input type="character" name="dFname" value="">
+        </div>
+            
+        <!-- Doctor department input -->
+        <div class="first1">
+            <label for="Department">Doctor Department</label>
+            <input type="character" name="department" value= "{{Patient_Appoint.department}}">
+
+        </div>
+        <!-- Patient's problem input -->
+        <div class="first">
+            <label for="Ailment">Patients Problem</label>
+            <input type="character" name="Problem_pat" value= "{{Patient_Appoint.Problem_pat}}">
+        </div>
+        <!-- Doctor's mobile number input -->
+        <div class="first1">
+            <label for="phone">Doctor Mobile Number</label>
+            <input type="phone2numeric" name="Dphone" value= "{{Patient_Appoint.Dphone}}">
+        </div>
+        <!-- Submit button -->
+        <div>
+            <button type="submit">Book Appointments</button>
+        </div>
+    </form>
+</body>
+</html> 

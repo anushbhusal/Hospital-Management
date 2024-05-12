@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">  
+
+</head>
+<div class="haddd">
+    <header>
+        <div class="header-left">
+            <p>Tech<span>Care</span></p>
+        </div>
+        <div class="header-right"> 
+            <div class="log-out">
+                {{ request.user.username }}
+                <img src="{%static "Image/addd.webp"%}"alt="Users" class="head-1" title="user">
+                <a href="{% url 'index' %}">LogOut</a>
+            </div>
+        </div>
+</header>
+    </div>
+<body>
+<div class="admin-body">
+<div class="left">
+<div class = "admtr">
+    <a onclick="show1()"><i class="fa-solid fa-gauge"></i>Dashboard</a>
+    <a onclick="show3()"><i class="fa-solid fa-bed-pulse"></i>Doctors</a>
+    <a onclick="show2()"><i class="fa-solid fa-calendar-days"></i>Appointments</a>
+    <a onclick="show4()"><i class="fa-solid fa-calendar-days"></i>Discharge</a>
+
+    </div>
+</div>
+<!-- ................................................................... -->
+<div class="right" name="adash">
+    <div id="div1">
+        <div  class="Admindash">
+            <div class="row">
+                <img src="{%static "Image/doctorr.png"%}">
+                <br>
+                <h2>Patient Name</h2>
+                <h1>
+                {{ request.user.username}}
+                </h1>
+
+            </div>
+            <div class="row">
+                <img src="{%static "Image/patientt.jpg"%}">
+                <br>
+                <h2>Doctor Name</h2>
+                <h1>
+                    {{ request.user.dFname}}
+                    </h1>
+
+            </div>
+            <div class="row">
+                <img src="{%static "Image/aaa.webp"%}">
+                <br>
+                <h2>Doctor Phone</h2>
+                <h1>
+                    {{ request.user.Dphone}}
+                    </h1>
+            </div>
+            <div class="row">
+                <img src="{%static "Image/doctorr.png"%}">
+                <br>
+                <h2>Doctor Department</h2>
+                <h1>
+                    {{ request.user.department}}
+                    </h1>
+
+            </div>
+            <div class="row">
+                <img src="{%static "Image/patientt.jpg"%}">
+                <br>
+                <h2>Admit Date</h2>
+                <h1>
+                    {{ request.user.Admit_date}}
+                    </h1>
+
+            </div>
+            <div class="row">
+                <img src="{%static "Image/aaa.webp"%}">
+                <br>
+                <h2>Symptoms or Problems </h2>
+                <h1>
+                    {{ request.user.Problem_pat}}
+                    </h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="div4">
+        <div  class="Admindash">
+            <div class="row" onclick="show6()">
+               <img src="{%static "Image/doctorr.png"%}">
+               <br>
+               <h2>view your Appointments</h2>
+            </div>
+            <div class="row" onclick="show5()">
+               <img src="{%static "Image/patientt.jpg"%}">
+                <br>
+                <h2>Book Appointments</h2>
+             </div>
+        </div>
+    </div>
+
+<iframe id="div10" src="{% url 'adocrec12' %}" height="100%" width="100%" border="none"> </iframe>
+<iframe id="patbook" src="{% url 'Appoint' username=request.user.username %}" height="100%" width="100%" border="none"> </iframe>
+<iframe id="patbookview" src="{% url 'Approve_appoint' %}" height="100%" width="100%" border="none"> </iframe>
+<iframe id="div6" src="{% url 'patient_download_their' username=user.username %}" height="100%" width="100%" border="none"> </iframe>
+
+</div>
+</div>
+
+
+
+<div>
+<footer>
+<h4 style="color: white;">Follow us</h4>
+<div class="social-links">
+    <a href="#" id="fb"><i class="fab fa-facebook-f" ></i></a>
+    <a href="#" id="fb"><i class="fab fa-twitter" ></i></a>
+    <a href="#" id="inst"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="inst"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</footer>
+</div>
+
+<script src="{%static "css/patients.js"%}"></script>
+
+
+</body>
+</html>

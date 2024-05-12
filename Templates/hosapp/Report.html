@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+{% load static %}
+{% load tz %} 
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static "css/download.css" %}">
+</head>
+
+<body>
+  <br><br><br>
+  <form id="downloadForm" method="post" action="{% url 'report' username=report.username %}">
+    {% csrf_token %}
+    <div class="invoice-box">
+      <div class="upperreport">
+        <table cellpadding="0" cellspacing="0">
+          <tr class="top">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td class="title">
+                    <h5>Hospital Management</h5>
+                  </td>
+                  <td>
+                    Admit Date: {{report.Admit_date}}<br>
+                    Release Date: {{ timezone.now|date:"Y-m-d" }}<br> 
+                    Days Spent: {{day}}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr class="information">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td>
+                    Patient Name: {{report.username}}<br>
+                    Patient Mobile: {{report.phone}}<br>
+                    Patient Address: {{report.address}}<br>
+                  </td>
+                  <td>
+                    Doctor Name:<br>
+                    {{report.dFname}}<br>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr class="information">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td>
+                    Disease and Symptoms:<br>
+                    {{report.Problem_pat}}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <h1 class="reporth1">Laboratory Check</h1>
+      </div>
+      <div class="underreport">
+        <div class="reportleft">
+          <table class="table1">
+            <tr>
+              <th colspan="2">Type of Test</th>
+              <th>Result</th>
+            </tr>
+            <tr>
+              <td colspan="2">Cardiovascular</td>
+              <td><input type="text" name="cardiovascular" id="Cardiovascular"></td>
+            </tr>
+            <tr>
+              <td colspan="2">Pulmonary</td>
+              <td><input type="text" name="Pulmonary" id="Pulmonary"></td>
+              
+            </tr>            
+            <tr>
+              <td colspan="2">Gastroenterology</td>
+              <td><input type="text" name="Gastroenterology" id="Gastroenterology"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Neurology</td>
+              <td><input type="text" name="Neurology" id="Neurology"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Musculoskeletal</td>
+              <td><input type="text" name="Musculoskeleton" id="Musculoskeletal"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Genitourinary</td>
+              <td><input type="text" name="Gentiourinary" id="Genitourinary"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Oro-Dental</td>
+              <td><input type="text" name="Oro" id="Oro-Dental"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Deformities/Extremities</td>
+              <td><input type="text" name="Extremities" id="Deformities/Extremities"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Hernia</td>
+              <td><input type="text" name="Hernia" id="Hernia"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Hydrocele</td>
+              <td><input type="text" name="Hydrocele" id="Hydrocele"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Varicose Veins</td>
+              <td><input type="text" name="Varicose" id="Varicose"></td>
+            </tr>
+            <tr>
+              <td rowspan="2">Eye (vision)</td>
+              <td>Left</td>
+              <td><input type="text" name="eyeleft" id="eyeleft"></td>
+              
+            </tr>
+            <tr>
+              <td>Right</td>
+              <td><input type="text" name="eyeright" id="eyeright"></td>
+              
+            </tr>
+            <tr>
+              <td rowspan="2">Ear</td>
+              <td>Left</td>
+              <td><input type="text" name="earleft" id="earleft"></td>
+              
+            </tr>
+            <tr>
+              <td>Right</td>
+              <td><input type="text" name="earright" id="earright"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Other</td>
+              <td><input type="text" name="otherrep" id="otherrep"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Chest X-ray</td>
+              <td><input type="text" name="chestxray" id="chest-xray"></td>
+              
+            </tr>
+            <tr>
+              <td colspan="2">Clinical Impression</td>
+              <td><input type="text" name="impression" id="Impression"></td>
+              
+            </tr>
+            <tr>
+              <td rowspan="4">Urine</td>
+              <td>RBC</td>
+              <td><input type="text" name="rbc" id="RBC"></td>
+              
+            </tr>
+            <tr>
+              <td>Plus Cell</td>
+              <td><input type="text" name="plus" id="plus"></td>
+              
+            </tr>
+            <tr>
+              <td>Epithelial cell</td>
+              <td><input type="text" name="epithelial" id="Epithelial"></td>
+              
+            </tr>
+            <tr>
+              <td>Pregnancy Test (if Female)</td>
+              <td><input type="text" name="pregnancy" id="Pregnancy"></td>
+              
+            </tr>
+          </table>
+        </div>
+        <div class="reportright">
+          <table class="table2">
+            <tr>
+              <th>Blood Examination</th>
+              <th>Result</th>
+              <th>Reference Range</th>
+            </tr>
+            <tr>
+              <td>Total WBC Count</td>
+              <td><input type="text" name="wbc" id="WBC"></td>
+              
+              <td>4000-11000</td>
+            </tr>
+            <tr>
+              <td>Neutrophils</td>
+              <td><input type="text" name="Neutrophils" id="Neutrophils"></td>
+              
+              <td>45-74%</td>
+            </tr>
+            <tr>
+              <td>Lymphocytes</td>
+              <td><input type="text" name="Lymphocytes" id="Lymphocytes"></td>
+              
+              <td>25-40%</td>
+            </tr>
+            <tr>
+              <td>Eosinophils</td>
+              <td><input type="text" name="Eosinophils" id="Eosinophils"></td>
+              
+              <td>1-6%</td>
+            </tr>
+            <tr>
+              <td>Monocytes</td>
+              <td><input type="text" name="monocytes" id="Monocytes"></td>
+              
+              <td>0-8%</td>
+            </tr>
+            <tr>
+              <td>Basophils</td>
+              <td><input type="text" name="basophils" id="Basophils"></td>
+              
+              <td>0-3%</td>
+            </tr>
+            <tr>
+              <td>Hemoglobin</td>
+              <td><input type="text" name="hemoglobin" id="Hemoglobin"></td>
+              
+              <td>Male:12-17 gm% <br>Female: 11-14gm%</td>
+            </tr>
+            <tr>
+              <td>Random Blood Sugar</td>
+              <td><input type="text" name="sugar" id="sugar"></td>
+              
+              <td>80-120mg%</td>
+            </tr>
+            <tr>
+              <td>Urea</td>
+              <td><input type="text" name="urea" id="Urea"></td>
+              
+              <td>20-45mg%</td>
+            </tr>
+            <tr>
+              <td>Creatinine</td>
+              <td><input type="text" name="creatine" id="Creatinine"></td>
+              
+              <td>0.4-1.4 mg%</td>
+            </tr>
+            <tr>
+              <td>Bilirubin (Total/Direct)</td>
+              <td><input type="text" name="bilirubin" id="Bilirubin"></td>
+              
+              <td>0.4-1 mg%</td>
+            </tr>
+            <tr>
+              <td>SGPT</td>
+              <td><input type="text" name="sgpt" id="SGPT"></td>
+              
+              <td>5-37 u/L</td>
+            </tr>
+            <tr>
+              <td>SGOT</td>
+              <td><input type="text" name="scot" id="SGOT"></td>
+              
+              <td>3-45 U/L</td>
+            </tr>
+            <tr>
+              <td rowspan="5">Serology</td>
+              <td><input type="text" name="hiv" id="HIVS"></td>
+              <td>Anti-HIVS</td>
+
+              
+            </tr>
+            <tr>
+              <td><input type="text" name="hbsag" id="HBS"></td>
+              <td>HBS-Ag</td>
+
+              
+            </tr>
+            <tr>
+              <td><input type="text" name="vdrl" id="VDRL/RPR"></td>
+              <td>VDRL/RPR</td>
+
+              
+            </tr>
+            <tr>
+              <td><input type="text" name="tpha" id="TPHA"></td>
+              <td>TPHA</td>
+
+              
+            </tr>
+            <tr>
+              <td><input type="text" name="bloodgroup" id="bloodgroup"></td>
+              <td>Blood Group</td>
+
+              
+            </tr>
+            <tr>
+              <td>Malaria Parasite</td>
+              <td><input type="text" name="malaria" id="Malaria"></td>
+              <td></td>
+              
+            </tr>
+            <tr>
+              <td>Micro Filaria</td>
+              <td><input type="text" name="filaria" id="filaria"></td>
+              <td></td>
+              
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="footerreport">
+        <p>.........................................<br>Authorized Signature</p>
+        <div>
+          <p>This Report is valid for 2 months from the date of Medical Examination</p>
+          <br>
+          <p class="pmargin"> Format-Recommended by Ministry of Health and Population, Government of Nepal</p>
+        </div>
+        <br>
+        <p>.............................................<br>Physician Signature</p>
+      </div>
+    </div>
+
+    <div class="download">
+  
+      <button type="submit">Generate Report</button>
+    
+    </div>
+
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googl.eapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+</head>
+<body>
+    <form method="post" action="{% url 'login2' %}">
+        <h3>Login Here</h3>
+        {% csrf_token %}
+        <div class="form-group first">
+            <label for="username">Username</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group last mb-4">
+            <label for="password">Password</label>
+            {{ form.password }}
+        </div>
+        <button type="submit">Log In</button>
+        <div class="social">
+            <div class="go"><i class="fab fa-google"></i>Google</div>
+            <div class="fb"><i class="fab fa-facebook"></i>Facebook</div>
+        </div>
+        <a href="/register2/">Create an account</a>
+    </form>
+</body>

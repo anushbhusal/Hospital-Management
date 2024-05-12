@@ -1,0 +1,36 @@
+.reporth1{
+    color: yellow;
+    background-color: darkblue;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.reportleft{
+    width: 49%;
+    float: left;
+}
+.reportright{
+    width: 49%;
+    float: right;
+}
+.table2{
+    width: 100%;
+}
+.table1 td,th{
+    width: 100%;
+    border: 1px black solid;
+    font-size: small;
+    text-align: center;
+    border-collapse: collapse;
+
+
+
+}
+.table2 td,th{
+    width: 100%;
+    border: 1px black solid;
+    font-size: small;
+    text-align: center;
+    border-collapse: collapse;
+
+}

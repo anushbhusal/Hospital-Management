@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <br>
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">
+
+</head>
+<body>
+    <div class="Record22">
+        <div class="heading">
+            <h1>Your All Patients Record</h1>
+        </div>
+        {% if Adminenter_appointmentdata %}
+        <table class="table">
+        <tr>
+            <th rowspan="2">Patient Name</th>
+            <th rowspan="2">Address</th>
+            <th rowspan="2">Age</th>
+            <th rowspan="2">Email</th>
+            <th rowspan="2">Patients Mobile</th>
+            <th rowspan="2">Patient Problems & Symptoms</th>
+            <th rowspan="2">Doctor Name</th>
+            <th rowspan="2">Doctor Mobile</th>
+            <th rowspan="2">Doctor Department</th>
+            <th rowspan="2">Take Appointment</th>
+        </tr>
+        <tr>
+        </tr>
+        {% for user in Adminenter_appointmentdata %}
+        <tr>
+            <td>{{user.username}}</td>
+            <td >{{user.address}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.Problem_pat}}</td>
+            <td>{{user.dFname}}</td>
+            <td>{{user.Dphone}}</td>
+            <td>{{user.department}}</td>
+            <td><a href="{% url 'Admin_book_appointment_pat' username=user.username %}"><button id="icon2"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
+
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <center><h2>We are sorry We can't Found Any Patients to Appointments ...!!!!!</h2></center>
+    {% endif %}
+    </div>
+</div>
+</div>
+</body>
+</html>

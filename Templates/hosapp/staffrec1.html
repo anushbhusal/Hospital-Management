@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <br>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{%static "css/register.css"%}" {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">
+
+
+
+</head>
+<body>
+    <div class="Record22">
+        <div class="heading">
+            <h1>All Staff Record</h1>
+        </div>
+        {% if userdata1 %}
+        <table class="table">
+        <tr>
+            <th colspan="2">Name</th>
+            <th rowspan="2">Address</th>
+            <th rowspan="2">Age</th>
+            <th rowspan="2">Email</th>
+            <th rowspan="2">Mobile</th>
+        </tr>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+        </tr>
+        {% for user in userdata1 %}
+        <tr>
+            <td>{{user.stf_Fname}}</td>
+            <td>{{user.stf_Lname}}</td>
+            <td >{{user.address}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <center><h2>No Staff Records found...!!!!!</h2></center>
+    {% endif %}
+    </div>
+</div>
+</div>
+</body>
+</html>

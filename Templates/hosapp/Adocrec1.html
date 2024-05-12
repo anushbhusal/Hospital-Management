@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>HOSPITAL MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <br>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{%static "css/register.css"%}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{%static "css/dashh.css"%}">
+
+
+
+</head>
+<body>
+    <div class="Record22">
+        <div class="heading">
+            <h1>All Doctors Records</h1>
+        </div>
+        {% if userdata2 %}
+        <table class="table">
+        <tr>
+            <th rowspan="2">Docotor ID</th>
+            <th colspan="2">Name</th>
+            <th rowspan="2">Address</th>
+            <th rowspan="2">Age</th>
+            <th rowspan="2">Email</th>
+            <th rowspan="2">Mobile</th>
+            <th rowspan="2">Department</th>
+            <th colspan="2">Action</th>
+
+
+        </tr>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for user in userdata2 %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{user.dFname}}</td>
+            <td>{{user.dLname}}</td>
+            <td >{{user.address}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.Department}}</td>
+            <td><a href="{% url 'edit1' user.id %}"><button id="icon2"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
+            <td><a href="{% url 'delete1' user.id %}"><button id="icon3"><i class="fa-solid fa-trash"></i></button></a></td>
+
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <center><h2>No Doctor Records found...!!!!!</h2></center>
+    {% endif %}
+    </div>
+</body>
+</html>

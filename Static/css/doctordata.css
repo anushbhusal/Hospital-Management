@@ -1,0 +1,60 @@
+body{
+        font-family: poppins;
+}
+.record{
+        display: table;
+        width: 80%;
+        margin-left:auto ;
+        margin-right: auto;
+        background-color: #34ebbd;
+        border: 2px solid darkblue;
+        padding: 5px;
+
+}
+.record h1{
+        color:white;
+        background:darkblue;
+        display: table;
+        margin-left:auto ;
+        margin-right: auto;
+        margin-bottom:50px;
+        padding: 5px;
+        border-radius: 10px;
+}
+#table{
+        display: table;
+        border:3px solid black;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+        margin-top: -15px;
+        height:80%;
+        width:100%;
+}
+#table td{
+        height:20px;
+        border:1.5px solid black;
+        border-collapse:collapse;
+        background: #99ccff;
+        cursor:pointer;
+        text-align: center;
+        width: 100px;
+}
+#table th{
+        border: 2px solid black;
+        border-collapse: collapse;
+        background-color:darkblue;
+        color: white;
+        cursor:pointer;
+}
+#table td:hover{
+        background:#ffb3ff;
+}
+#table button{
+        width: 80px;
+        padding: 3px;
+}
+#table button:hover{
+        cursor: pointer;
+        padding: 3px;
+        background-color: skyblue;
+}
